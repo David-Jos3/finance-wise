@@ -1,7 +1,10 @@
 import { Injectable } from '@nestjs/common'
 import { User } from '../entities/user'
 import { UserRepository } from '../repositories/user-repository'
-import { hash } from 'bcrypt'
+
+import { UserAlreadyExistsError } from './errors/user-already-exists-error'
+import { Either, left, right } from '@/core/either'
+import { HashGenerator } from '../cryptography/hash-generator'
 
 interface RegisterUserUseCaseRequest {
   name: string
@@ -9,17 +12,25 @@ interface RegisterUserUseCaseRequest {
   password: string
 }
 
-interface RegisterUserUseCaseResponse {
+type RegisterUserUseCaseResponse = Either<
+UserAlreadyExistsError, {
   user: User
-}
+}>
 
 @Injectable()
 export class RegisterUserUseCase {
-  constructor(private userRepository: UserRepository) {}
+  constructor(
+    private userRepository: UserRepository,
+    private hashGenerator: HashGenerator,
+  ) {}
 
   async execute({ name, email, password }:RegisterUserUseCaseRequest)
     : Promise<RegisterUserUseCaseResponse> {
-    const passwordHash = await hash(password, 8)
+    const userWithSameEmail = await this.userRepository.findByEmail(email)
+    if (userWithSameEmail) {
+      return left(new UserAlreadyExistsError(email))
+    }
+    const passwordHash = await this.hashGenerator.hash(password)
 
     const user = new User({
       name,
@@ -29,6 +40,6 @@ export class RegisterUserUseCase {
     })
 
     await this.userRepository.create(user)
-    return { user }
+    return right({ user })
   }
 }

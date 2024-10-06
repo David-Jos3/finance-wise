@@ -3,9 +3,9 @@ import { randomUUID } from 'node:crypto'
 export interface CategoryProps {
   name: string
   description?: string | null
-  expensesId: string
-  budgetsId: string
-  incomesId: string
+  expensesId?: string
+  budgetsId?: string
+  incomesId?: string
 
 }
 

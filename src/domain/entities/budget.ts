@@ -2,9 +2,10 @@ import { randomUUID } from 'node:crypto'
 
 export interface BudgetProps {
   amount: number
-  description?: string
   userId: string
   categoryId: string
+  startDate: Date | null
+  endDate: Date | null
   createdAt: Date
   updatedAt?: Date | null
 }
@@ -28,16 +29,20 @@ export class Budget {
     return this._props.amount
   }
 
-  get description(): string | null {
-    return this._props.description
-  }
-
   get userId(): string {
     return this._props.userId
   }
 
   get categoryId(): string {
     return this._props.categoryId
+  }
+
+  get startDate(): Date | null {
+    return this._props.startDate
+  }
+
+  get endDate(): Date | null {
+    return this._props.endDate
   }
 
   get createdAt(): Date {

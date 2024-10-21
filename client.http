@@ -1,13 +1,13 @@
 @baseUrl = http://localhost:3333
-@authToken = {{authenticate.response.body.access_token}}
+@authToken = {{authenticate.response.body.value.access_token}}
 
 # @name create_account
 POST {{baseUrl}}/accounts
 Content-Type: application/json
 
 {
-  "name": "Diego Fernandes",
-  "email": "diego@rocketseat.com.br",
+  "name": "Rafael Veiga ",
+  "email": "rafaelVeiga@gmail.com",
   "password": "12345678"
 }
 
@@ -18,9 +18,55 @@ POST {{baseUrl}}/sessions
 Content-Type: application/json
 
 {
-  "email": "diego@rocketseat.com.br",
+  "email": "rafaelVeiga@gmail.com",
   "password": "12345678"
 }
 
+###
+# @name create_category
+POST {{baseUrl}}/categories
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "name": "plataformas de streaming",
+  "description": "Despesas com serviços de assinatura de streaming de vídeo e música, como Netflix, Amazon Prime, Spotify, e similares"
+}
+###
+# @name create_budget
+POST {{baseUrl}}/budgets
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "amount": 520,
+  "categoryId": "b6f462d7-1a37-4ab6-a978-4f628b24b5bb",
+  "startDate": "2024-05-10",
+  "endDate": "2024-06-10"
+}
+
+###
+# @name create_incomes
+POST {{baseUrl}}/incomes
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "amount": 2000,
+  "description": "Freelance",
+  "categoryId": "4e4b4172-a0b2-479a-b6f8-05c7e8b84aba"
+}
+
+###
+# @name create_expenses
+POST {{baseUrl}}/expense
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
 
 
+{
+  "amount": 13.90,
+  "description": "Assinatura Netflix",
+  "categoryId": "a11e4ce4-6d47-421d-8021-840577816bec",
+  "date": "2024-05-10"
+}

@@ -31,4 +31,12 @@ export class Category {
   get description(): string | null {
     return this._props.description
   }
+
+  setName(name: string): void {
+    this._props.name = name
+  }
+
+  setDescription(description: string | null): void {
+    this._props.description = description
+  }
 }

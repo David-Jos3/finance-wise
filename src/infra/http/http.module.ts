@@ -14,6 +14,8 @@ import { CreateIncomeController } from './controllers/create-incomes.controller'
 import { CreateIncomeUseCase } from '@/domain/use-cases/create-income'
 import { CreateExpenseController } from './controllers/create-expense.controller'
 import { CreateExpenseUseCase } from '@/domain/use-cases/create-expense'
+import { EditCategoryController } from './controllers/edit-category.controller'
+import { EditCategoryUseCase } from '@/domain/use-cases/edit-category'
 
 @Module({
   imports: [DatabaseModule, CryptographyModule],
@@ -24,6 +26,7 @@ import { CreateExpenseUseCase } from '@/domain/use-cases/create-expense'
     CreateBudgetsController,
     CreateIncomeController,
     CreateExpenseController,
+    EditCategoryController,
   ],
   providers: [
     RegisterUserUseCase,
@@ -32,6 +35,7 @@ import { CreateExpenseUseCase } from '@/domain/use-cases/create-expense'
     CreateBudgetUseCase,
     CreateIncomeUseCase,
     CreateExpenseUseCase,
+    EditCategoryUseCase,
   ],
 })
 export class HttpModule {}

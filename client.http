@@ -29,8 +29,8 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-  "name": "plataformas de streaming",
-  "description": "Despesas com serviços de assinatura de streaming de vídeo e música, como Netflix, Amazon Prime, Spotify, e similares"
+  "name": "carr",
+  "description": "Despesas com serviços de gastos com o meu veiculo"
 }
 ###
 # @name create_budget
@@ -69,4 +69,14 @@ Authorization: Bearer {{authToken}}
   "description": "Assinatura Netflix",
   "categoryId": "a11e4ce4-6d47-421d-8021-840577816bec",
   "date": "2024-05-10"
+}
+
+###
+# @name edit_category
+PUT  {{baseUrl}}/categories/ef8bf265-4951-45f6-8e98-59ce24425a20
+Content-Type: application/json
+
+{
+  "name": "Carro",
+  "description": "Despesas com serviços de gastos com o meu veiculo"
 }

@@ -5,7 +5,7 @@ import { Test } from '@nestjs/testing'
 import request from 'supertest'
 import { DatabaseModule } from '@/infra/database/database.module'
 
-describe('Create account [E2E]', () => {
+describe('Create categories [E2E]', () => {
   let app: INestApplication
 
   beforeAll(async () => {

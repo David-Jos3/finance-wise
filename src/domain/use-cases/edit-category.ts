@@ -1,6 +1,7 @@
 import { Either, left, right } from '@/core/either'
 import { Category } from '../entities/category'
 import { CategoryRepository } from '../repositories/category-repository'
+import { Injectable } from '@nestjs/common'
 
 interface EditCategoryUseCaseRequest {
   categoryId: string
@@ -12,6 +13,7 @@ type EditCategoryUseCaseResponse = Either<string, {
   category: Category
 }>
 
+@Injectable()
 export class EditCategoryUseCase {
   constructor(private categoryRepository: CategoryRepository) {}
   async execute({
@@ -26,6 +28,7 @@ export class EditCategoryUseCase {
       return left('Category not found')
     }
     category.setName(name)
+
     if (description !== undefined) {
       category.setDescription(description)
     }

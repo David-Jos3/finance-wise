@@ -24,4 +24,11 @@ export class InMemoryCategoryRepository implements CategoryRepository {
       categoryId.setDescription(category.description)
     }
   }
+
+  async delete(categoryId: string): Promise<void> {
+    const index = this.items.findIndex(items => items.id === categoryId)
+    if (index !== -1) {
+      this.items.splice(index, 1)
+    }
+  }
 }

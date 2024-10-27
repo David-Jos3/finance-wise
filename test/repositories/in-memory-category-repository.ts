@@ -19,9 +19,10 @@ export class InMemoryCategoryRepository implements CategoryRepository {
 
   async update(category: Category): Promise<void> {
     const categoryId = this.items.find((item) => item.id === category.id)
+
     if (categoryId) {
-      categoryId.setName(category.name)
-      categoryId.setDescription(category.description)
+      categoryId.name = category.name
+      categoryId.description = category.description
     }
   }
 

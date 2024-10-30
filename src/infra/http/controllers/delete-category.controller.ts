@@ -3,7 +3,7 @@ import { DeleteCategoryUseCase } from '@/domain/use-cases/delete-category'
 import { BadRequestException, Controller, Delete, HttpCode, Param } from '@nestjs/common'
 import { Public } from '../auth/public'
 
-@Controller('categories/:id')
+@Controller('/categories/:id')
 export class DeleteCategoryController {
   constructor(private deleteCategoryUseCase: DeleteCategoryUseCase) {}
 

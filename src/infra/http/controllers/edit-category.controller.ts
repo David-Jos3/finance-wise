@@ -4,6 +4,7 @@ import { EditCategoryUseCase } from '@/domain/use-cases/edit-category'
 import { BadRequestException, Body, Controller, HttpCode, Param, Put } from '@nestjs/common'
 import { ZodValidationPipe } from '../pipe/zod-validation-pipe'
 import { Public } from '../auth/public'
+import { right } from '@/core/either'
 
 const editCategoryBodySchema = z.object({
   name: z.string().min(1, { message: 'Category name is required' }),
@@ -37,5 +38,6 @@ export class EditCategoryController {
       console.log('Error:', result.value)
       throw new BadRequestException()
     }
+    return right({})
   }
 }

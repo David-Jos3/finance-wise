@@ -7,7 +7,7 @@ import { DatabaseModule } from '@/infra/database/database.module'
 import { CategoryRepository } from '@/domain/repositories/category-repository'
 import { Category } from '@/domain/entities/category'
 
-describe('Edit Category [E2E]', () => {
+describe('Delete Category [E2E]', () => {
   let app: INestApplication
   let categoryRepository : CategoryRepository
 

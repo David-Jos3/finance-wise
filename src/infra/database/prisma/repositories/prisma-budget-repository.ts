@@ -20,4 +20,18 @@ export class PrismaBudgetRepository implements BudgetRepository {
       { where: { id: budgetsId } })
     return PrismaBudgetMapper.toDomain(budgets)
   }
+
+  async update(budget: Budget): Promise<void> {
+    const data = PrismaBudgetMapper.toPrisma(budget)
+    await this.prisma.budget.update({
+      where: { id: budget.id },
+      data,
+    })
+  }
+
+  async delete(budgetId: string): Promise<void> {
+    await this.prisma.budget.delete({
+      where: { id: budgetId },
+    })
+  }
 }

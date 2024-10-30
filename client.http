@@ -80,3 +80,16 @@ Content-Type: application/json
   "name": "Carro",
   "description": "Despesas com serviços de gastos com o meu veiculo"
 }
+
+###
+# @name delete_category
+DELETE  {{baseUrl}}/categories/884b7ad9-8e08-4c92-ac69-5b20da573cb0
+Content-Type: application/json
+
+
+###
+# @name delete_budgets
+DELETE  {{baseUrl}}/budgets/b480b05e-16d5-4892-963e-5c703845f9df
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+

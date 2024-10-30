@@ -25,6 +25,7 @@ describe('Edit category', () => {
       name: 'category-01-edited',
       description: 'category-01-edited-description',
     })
+
     expect(result.isRight()).toBe(true)
     expect(inMemoryCategoryRepository.items[0].name).toBe('category-01-edited')
     expect(inMemoryCategoryRepository.items[0].description).toBe('category-01-edited-description')

@@ -27,10 +27,10 @@ export class EditCategoryUseCase {
     if (!category) {
       return left('Category not found')
     }
-    category.setName(name)
+    category.name = name
 
     if (description !== undefined) {
-      category.setDescription(description)
+      category.description = description
     }
 
     await this.categoryRepository.update(category)

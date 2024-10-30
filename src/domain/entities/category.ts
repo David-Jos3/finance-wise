@@ -32,11 +32,11 @@ export class Category {
     return this._props.description
   }
 
-  setName(name: string): void {
+  set name(name: string) {
     this._props.name = name
   }
 
-  setDescription(description: string | null): void {
+  set description(description: string | null) {
     this._props.description = description
   }
 }

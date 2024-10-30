@@ -28,8 +28,16 @@ export class Income {
     return this._props.amount
   }
 
+  set amount(amount: number) {
+    this._props.amount = amount
+  }
+
   get description(): string | null {
     return this._props.description
+  }
+
+  set description(description: string | null) {
+    this._props.description = description
   }
 
   get userId(): string {
@@ -40,11 +48,19 @@ export class Income {
     return this._props.categoryId
   }
 
+  set categoryId(categoryId: string) {
+    this._props.categoryId = categoryId
+  }
+
   get createdAt(): Date {
     return this._props.createdAt
   }
 
   get updatedAt(): Date | null {
     return this._props.updatedAt
+  }
+
+  set updatedAt(updatedAt: Date | null) {
+    this._props.updatedAt = updatedAt
   }
 }

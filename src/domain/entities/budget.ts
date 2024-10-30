@@ -29,6 +29,10 @@ export class Budget {
     return this._props.amount
   }
 
+  set amount(value: number) {
+    this._props.amount = value
+  }
+
   get userId(): string {
     return this._props.userId
   }
@@ -37,12 +41,24 @@ export class Budget {
     return this._props.categoryId
   }
 
+  set categoryId(value: string) {
+    this._props.categoryId = value
+  }
+
   get startDate(): Date | null {
     return this._props.startDate
   }
 
+  set startDate(value: Date | null) {
+    this._props.startDate = value
+  }
+
   get endDate(): Date | null {
     return this._props.endDate
+  }
+
+  set endDate(value: Date | null) {
+    this._props.endDate = value
   }
 
   get createdAt(): Date {
@@ -51,5 +67,9 @@ export class Budget {
 
   get updatedAt(): Date | null {
     return this._props.updatedAt
+  }
+
+  set updatedAt(value: Date | null) {
+    this._props.updatedAt = value
   }
 }

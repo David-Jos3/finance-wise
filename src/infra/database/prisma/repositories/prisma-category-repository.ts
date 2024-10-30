@@ -40,4 +40,18 @@ export class PrismaCategoryRepository implements CategoryRepository {
       data,
     })
   }
+
+  async delete(categoryId: string): Promise<void> {
+    const budgets = await this.prisma.budget.findMany({
+      where: { categoryId },
+    })
+
+    if (budgets.length) {
+      throw new Error('Cannot delete category with associated budgets')
+    }
+
+    await this.prisma.category.delete({
+      where: { id: categoryId },
+    })
+  }
 }

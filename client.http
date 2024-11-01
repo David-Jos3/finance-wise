@@ -93,3 +93,20 @@ DELETE  {{baseUrl}}/budgets/b480b05e-16d5-4892-963e-5c703845f9df
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
+###
+# @name delete_expenses
+DELETE  {{baseUrl}}/expenses/76f4904f-2af1-4eab-b4da-e75d6090d6cd
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+# @name edit_expenses
+PUT  {{baseUrl}}/expenses/b2f6c44e-544b-45f2-81b3-8df84cbe8982
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+  "amount": 23.99,
+  "date": "2024-05-10",
+  "categoryId": "a11e4ce4-6d47-421d-8021-840577816bec"
+}

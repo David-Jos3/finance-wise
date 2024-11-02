@@ -45,7 +45,7 @@ export class EditIncomeUseCase {
     income.amount = amount
     income.description = description
     income.categoryId = categoryId
-    income.updatedAt = updatedAt
+    income.updatedAt = updatedAt || new Date()
 
     await this.incomeRepository.update(income)
 

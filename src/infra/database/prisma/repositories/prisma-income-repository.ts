@@ -14,4 +14,26 @@ export class PrismaIncomeRepository implements IncomeRepository {
       data,
     })
   }
+
+  async findById(incomeId: string): Promise<Income | null> {
+    const income = await this.prisma.income.findUnique({
+      where: { id: incomeId },
+    })
+    return PrismaIncomeMapper.toDomain(income)
+  }
+
+  async update(income: Income): Promise<void> {
+    const data = PrismaIncomeMapper.toPrisma(income)
+
+    await this.prisma.income.update({
+      where: { id: income.id },
+      data,
+    })
+  }
+
+  async delete(incomeId: string): Promise<void> {
+    await this.prisma.income.delete({
+      where: { id: incomeId },
+    })
+  }
 }

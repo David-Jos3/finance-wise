@@ -46,8 +46,6 @@ describe('Edit income', () => {
       description: 'income-edited-description',
     })
 
-    console.log(result.value)
-
     expect(result.isRight()).toBe(true)
     expect(inMemoryIncomeRepository.items[0].amount).toBe(200)
     expect(inMemoryIncomeRepository.items[0].description).toBe('income-edited-description')

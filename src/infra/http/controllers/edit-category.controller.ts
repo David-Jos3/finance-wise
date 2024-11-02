@@ -35,7 +35,6 @@ export class EditCategoryController {
     })
 
     if (result.isLeft()) {
-      console.log('Error:', result.value)
       throw new BadRequestException()
     }
     return right({})
